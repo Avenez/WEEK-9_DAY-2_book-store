@@ -14,7 +14,7 @@ function App() {
     
       <header Container>
         <MyNav/>
-        {/* <MyAlert MyText="Questo è Il mio Alert di Prova!" /> */}
+        <MyAlert MyText="Questo è Il mio Alert di Prova!" />
       </header>
       <AllTheBooks/>
       <MyFooter/>
