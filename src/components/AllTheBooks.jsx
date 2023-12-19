@@ -13,8 +13,8 @@ class AllTheBooks extends React.Component {
     <Container className='overflow-auto'>
         <Row>
             {fantasyBooks.map((book) =>(
-                    <Card id={book.id} style={{ width: '18rem' }} className='me-4 mb-4'>
-                    <Card.Img variant="top" src={book.img} />
+                    <Card key={book.id} style={{ width: '18rem' }} className='me-4 mb-4'>
+                    <Card.Img variant="top" src={book.img} style={{ objectFit: 'cover', height: '200px' }} />
                     <Card.Body>
                       <Card.Title>{book.title}</Card.Title>
                       <Card.Text>
