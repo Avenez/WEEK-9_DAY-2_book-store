@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import MyNav from "./components/MyNav";
 import MyFooter from "./components/MyFooter";
 import MyAlert from "./components/MyAlert";
+import AllTheBooks from "./components/AllTheBooks";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <MyNav/>
         {/* <MyAlert MyText="Questo è Il mio Alert di Prova!" /> */}
       </header>
+      <AllTheBooks/>
       <MyFooter/>
       </>
     </div>

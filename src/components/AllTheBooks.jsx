@@ -9,10 +9,10 @@ import Row from 'react-bootstrap/esm/Row';
 class AllTheBooks extends React.Component {
     render(){
   return (
-    <Container>
+    <Container className='overflow-auto'>
         <Row>
             {fantasyBooks.map((book) =>(
-                    <Card id={book.id}>
+                    <Card id={book.id} style={{ width: '18rem' }} className='me-4 mb-4'>
                     <Card.Img variant="top" src={book.img} />
                     <Card.Body>
                       <Card.Title>{book.title}</Card.Title>
@@ -31,4 +31,4 @@ class AllTheBooks extends React.Component {
 }
 }
 
-export default BasicExample;
+export default AllTheBooks;
