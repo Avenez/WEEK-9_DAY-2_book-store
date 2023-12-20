@@ -46,8 +46,8 @@ class AllTheBooks extends Component {
 
 
         <Row className='row-cols-xs-2 row-cols-md-3 row-cols-lg-4' >
-            {this.state.books.map((book) =>(
-                    <Card key={`book-id-${book.id}`} style={{ width: '18rem' }} className='me-4 mb-4'>
+            {this.state.books.map((book, index) =>(
+                    <Card key={`book-id-${index}`} style={{ width: '18rem' }} className='me-4 mb-4'>
                     <Card.Img variant="top" src={book.img} style={{ objectFit: 'cover', height: '200px' }} />
                     <Card.Body>
                       <Card.Title>{book.title}</Card.Title>
