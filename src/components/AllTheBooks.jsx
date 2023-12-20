@@ -45,14 +45,14 @@ class AllTheBooks extends Component {
       </div>
 
 
-        <Row className='row-cols-xs-2 row-cols-md-3 row-cols-lg-4' >
+        <Row className='row-cols-xs-2 row-cols-md-3 row-cols-lg-4 overflow-auto' >
             {this.state.books.map((book, index) =>(
                     <Card key={`book-id-${index}`} style={{ width: '18rem' }} className='me-4 mb-4'>
                     <Card.Img variant="top" src={book.img} style={{ objectFit: 'cover', height: '200px' }} />
                     <Card.Body>
                       <Card.Title>{book.title}</Card.Title>
                       <Card.Text>
-                        <Badge bg="warning"> {book.price}€</Badge>
+                        <Badge bg="danger"> {book.price}€</Badge>
                         <Badge bg="info">{book.category}</Badge>
                       </Card.Text>
                       {/* <Button variant="primary">Go somewhere</Button> */}
