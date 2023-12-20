@@ -1,7 +1,5 @@
 import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import { Component } from "react";
-import Badge from "react-bootstrap/Badge";
 import Container from "react-bootstrap/esm/Container";
 import fantasyBooks from "../data/books/fantasy.json";
 import historyBooks from "../data/books/history.json";
@@ -91,7 +89,7 @@ class AllTheBooks extends Component {
             />
           </Col>
         </Row>
-        <Row className="row-cols-xs-2 row-cols-md-3 row-cols-lg-4 overflow-auto">
+        <Row className="row-cols-xs-2 row-cols-md-4 row-cols-lg-5 overflow-auto">
           {this.state.books ? (
             <>
               <MyBookList bookList={this.state.books} />

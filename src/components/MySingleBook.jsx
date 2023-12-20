@@ -9,7 +9,7 @@ class MySingleBook extends Component {
 
   render() {
     const { book, index } = this.props;
-    const cardClassName = `me-4 mb-4 ${this.state.selected ? "greenCardBorder" : ""}`;
+    const cardClassName = `me-1 mb-4 ${this.state.selected ? "greenCardBorder" : ""}`;
 
     return (
       <Card key={`book-id-${index}`} className={cardClassName}>
