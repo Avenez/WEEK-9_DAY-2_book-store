@@ -52,7 +52,7 @@ class AllTheBooks extends Component {
                     <Card.Body>
                       <Card.Title>{book.title}</Card.Title>
                       <Card.Text>
-                        <Badge bg="danger"> {book.price}€</Badge>
+                        <Badge bg="danger" className='me-2'> {book.price}€</Badge>
                         <Badge bg="info">{book.category}</Badge>
                       </Card.Text>
                       {/* <Button variant="primary">Go somewhere</Button> */}
