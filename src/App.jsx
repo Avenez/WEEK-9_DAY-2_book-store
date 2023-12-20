@@ -1,4 +1,3 @@
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import MyNav from "./components/MyNav";
@@ -9,16 +8,14 @@ import AllTheBooks from "./components/AllTheBooks";
 function App() {
   return (
     <div className="App">
-
       <>
-    
-      <header Container>
-        <MyNav/>
-        {/* <MyAlert color="success" MyText="Questo è Il mio Alert di Prova!" /> */}
-      </header>
-      
-      <AllTheBooks/>
-      <MyFooter/>
+        <header>
+          <MyNav />
+          {/* <MyAlert color="success" MyText="Questo è Il mio Alert di Prova!" /> */}
+        </header>
+
+        <AllTheBooks />
+        <MyFooter />
       </>
     </div>
   );

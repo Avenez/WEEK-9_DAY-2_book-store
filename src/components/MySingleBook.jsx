@@ -9,18 +9,17 @@ class MySingleBook extends Component {
 
   render() {
     const { book, index } = this.props;
-    const cardClassName = `me-1 mb-4 ${this.state.selected ? "greenCardBorder" : ""}`;
+    const cardClassName = `me-1 mb-4 cursor-pointer ${this.state.selected ? "greenCardBorder" : ""}`;
 
     return (
-      <Card key={`book-id-${index}`} className={cardClassName}>
-        <Card.Img
-          variant="top"
-          src={book.img}
-          style={{ objectFit: "cover", height: "200px" }}
-          onClick={() => {
-            this.setState({ selected: true });
-          }}
-        />
+      <Card
+        key={`book-id-${index}`}
+        className={cardClassName}
+        onClick={() => {
+          this.state.selected ? this.setState({ selected: false }) : this.setState({ selected: true });
+        }}
+      >
+        <Card.Img variant="top" src={book.img} style={{ objectFit: "cover", height: "200px" }} />
         <Card.Body>
           <Card.Title>{book.title}</Card.Title>
           <Card.Text>

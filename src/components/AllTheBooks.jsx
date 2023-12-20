@@ -76,6 +76,7 @@ class AllTheBooks extends Component {
         <Row className="justify-content-center mb-2">
           <Col lg={5}>
             <Form.Control
+              className="border border-1 border-info"
               placeholder="Inserisci qui il titolo del libro che stai cercando..."
               onKeyDown={(event) => {
                 if (event.key === "Enter") {
@@ -89,7 +90,7 @@ class AllTheBooks extends Component {
             />
           </Col>
         </Row>
-        <Row className="row-cols-xs-2 row-cols-md-4 row-cols-lg-5 overflow-auto">
+        <Row xl={6}>
           {this.state.books ? (
             <>
               <MyBookList bookList={this.state.books} />
