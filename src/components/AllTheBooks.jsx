@@ -18,19 +18,28 @@ class AllTheBooks extends Component {
   state = {
     // books : fantasyBooks,
     books: null,
+    library: {
+      fantasy: fantasyBooks,
+      horror: horrorBooks,
+      romance: romanceBooks,
+      scifi: scifiBooks,
+      history: historyBooks,
+    },
+
+    selectedCat: "fantasy",
   };
   // --------------------------------
 
   // ---------RENDER
   render() {
     return (
-      <Container className="overflow-auto mt-3">
+      <Container className=" mt-3">
         <div className="mb-3">
           <Button
             className="me-2"
             variant="info"
             onClick={() => {
-              this.setState({ books: fantasyBooks });
+              this.setState({ selectedCat: "fantasy", books: fantasyBooks });
             }}
           >
             Fantasy
@@ -39,7 +48,7 @@ class AllTheBooks extends Component {
             className="me-2"
             variant="warning"
             onClick={() => {
-              this.setState({ books: historyBooks });
+              this.setState({ selectedCat: "history", books: historyBooks });
             }}
           >
             History
@@ -48,7 +57,7 @@ class AllTheBooks extends Component {
             className="me-2"
             variant="danger"
             onClick={() => {
-              this.setState({ books: horrorBooks });
+              this.setState({ selectedCat: "horror", books: horrorBooks });
             }}
           >
             Horror
@@ -57,7 +66,7 @@ class AllTheBooks extends Component {
             className="me-2"
             variant="success"
             onClick={() => {
-              this.setState({ books: romanceBooks });
+              this.setState({ selectedCat: "romance", books: romanceBooks });
             }}
           >
             Romance
@@ -66,33 +75,28 @@ class AllTheBooks extends Component {
             className="me-2"
             variant="dark"
             onClick={() => {
-              this.setState({ books: scifiBooks });
+              this.setState({ selectedCat: "scifi", books: scifiBooks });
             }}
           >
             Sci-fi
           </Button>
         </div>
 
-        <Row className="justify-content-center mb-2">
-          <Col lg={5}>
-            <Form.Control
-              className="border border-1 border-info"
-              placeholder="Inserisci qui il titolo del libro che stai cercando..."
-              onKeyDown={(event) => {
-                if (event.key === "Enter") {
+        <Row sm={4} md={5} lg={6}>
+          {this.state.books ? (
+            <>
+              <Form.Control
+                className="border border-1 border-info"
+                placeholder="Inserisci qui il titolo del libro che stai cercando..."
+                onChange={(event) => {
                   this.setState({
-                    books: this.state.books.filter((book) =>
+                    books: this.state.library[this.state.selectedCat].filter((book) =>
                       book.title.toLowerCase().includes(event.target.value.toLowerCase())
                     ),
                   });
-                }
-              }}
-            />
-          </Col>
-        </Row>
-        <Row xl={6}>
-          {this.state.books ? (
-            <>
+                }}
+              />
+
               <MyBookList bookList={this.state.books} />
             </>
           ) : (

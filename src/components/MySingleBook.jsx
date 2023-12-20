@@ -8,12 +8,12 @@ class MySingleBook extends Component {
   };
 
   render() {
-    const { book, index } = this.props;
-    const cardClassName = `me-1 mb-4 cursor-pointer ${this.state.selected ? "greenCardBorder" : ""}`;
+    const { book } = this.props;
+    const cardClassName = `me-1 mb-4 ${this.state.selected ? "greenCardBorder" : ""}`;
 
     return (
       <Card
-        key={`book-id-${index}`}
+        style={{ cursor: "pointer" }}
         className={cardClassName}
         onClick={() => {
           this.state.selected ? this.setState({ selected: false }) : this.setState({ selected: true });

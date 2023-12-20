@@ -11,7 +11,6 @@ function App() {
       <>
         <header>
           <MyNav />
-          {/* <MyAlert color="success" MyText="Questo è Il mio Alert di Prova!" /> */}
         </header>
 
         <AllTheBooks />

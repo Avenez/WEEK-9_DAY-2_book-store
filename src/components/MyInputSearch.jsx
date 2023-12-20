@@ -19,12 +19,10 @@ class MyInputSearch extends React.Component {
   render() {
     return (
       <Row className="justify-content-center mb-2">
-        <Col lg={5}>
-          <Form.Control
-            placeholder="Inserisci qui il titolo del libro che stai cercando..."
-            onChange={this.handleSearch}
-          />
-        </Col>
+        <Form.Control
+          placeholder="Inserisci qui il titolo del libro che stai cercando..."
+          onChange={this.handleSearch}
+        />
       </Row>
     );
   }
