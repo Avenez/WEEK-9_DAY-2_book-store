@@ -9,6 +9,7 @@ import horrorBooks from '../data/books/horror.json';
 import romanceBooks from '../data/books/romance.json';
 import scifiBooks from '../data/books/scifi.json';
 import Row from 'react-bootstrap/esm/Row';
+import MyAlert from './MyAlert';
 
 // -----------CLASSE COMPONET
 class AllTheBooks extends Component {
@@ -16,14 +17,15 @@ class AllTheBooks extends Component {
 
 // ---------IL SUO STATE ALL'INTERNO
   state={
-    books : fantasyBooks,
+    // books : fantasyBooks,
+    books : null,
   };
 // --------------------------------
 
 // ---------RENDER
     render(){
   return (
-    <Container className='overflow-auto'>
+    <Container className='overflow-auto mt-3'>
 
       <div className='mb-3'>
           <Button className='me-2' variant='info' onClick={()=>{
@@ -46,7 +48,12 @@ class AllTheBooks extends Component {
 
 
         <Row className='row-cols-xs-2 row-cols-md-3 row-cols-lg-4 overflow-auto' >
-            {this.state.books.map((book, index) =>(
+            {this.state.books ? (
+              
+              
+              
+              this.state.books.map((book, index) =>(
+              <>
                     <Card key={`book-id-${index}`} style={{ width: '18rem' }} className='me-4 mb-4'>
                     <Card.Img variant="top" src={book.img} style={{ objectFit: 'cover', height: '200px' }} />
                     <Card.Body>
@@ -58,7 +65,17 @@ class AllTheBooks extends Component {
                       {/* <Button variant="primary">Go somewhere</Button> */}
                     </Card.Body>
                   </Card>
-            ))}
+                  </>)
+
+            
+            
+            
+            
+            )):(
+              <Container>
+              <MyAlert color="danger" MyText="Premi un bottone per scegliere la categoria"/>
+              </Container>
+            )}
 
     </Row>
     </Container>
