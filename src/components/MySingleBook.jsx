@@ -8,49 +8,26 @@ class MySingleBook extends Component {
 
   state = {
     selected: false,
-    commmentSec: false,
-    commentsList: [],
   };
 
   // ---------FUNZIONE DI FETCH-------------
-  fetchComments = async () => {
-    try {
-      const response = await fetch(`https://striveschool-api.herokuapp.com/api/comments/${this.props.book.asin}`, {
-        headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTcxYzlhYzBkOGEyMDAwMThhNDhhM2MiLCJpYXQiOjE3MDMxNjQ0MTQsImV4cCI6MTcwNDM3NDAxNH0.X1GMxJnGEZB7B2iiPcTT5fG7DkgIXpQT1qxrB8qfdJo",
-        },
-      });
-
-      if (response.ok) {
-        const commentsListObj = await response.json();
-        this.setState({ commentsList: commentsListObj });
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  componentDidMount() {
-    this.fetchComments();
-  }
 
   render() {
     const { book } = this.props;
-    const cardClassName = `me-1 mb-4 ${this.state.selected ? "greenCardBorder" : ""}`;
+    const cardClassName = `me-1 mb-4 ${this.state.selected ? "greenCardBorder" : ""} p-3 bgColorCard`;
 
     return (
-      <Card
-        style={{ cursor: "pointer" }}
-        className={cardClassName}
-        onClick={() => {
-          this.setState((prevState) => ({
-            selected: !prevState.selected,
-            commentSec: !prevState.commentSec,
-          }));
-        }}
-      >
-        <Card.Img variant="top" src={book.img} style={{ objectFit: "cover", height: "200px" }} />
+      <Card className={cardClassName}>
+        <Card.Img
+          variant="top"
+          src={book.img}
+          style={{ objectFit: "cover", height: "200px", cursor: "pointer" }}
+          onClick={() => {
+            this.setState((prevState) => ({
+              selected: !prevState.selected,
+            }));
+          }}
+        />
         <Card.Body>
           <Card.Title>{book.title}</Card.Title>
           <Card.Text>
@@ -60,11 +37,7 @@ class MySingleBook extends Component {
             <Badge bg="info">{book.category}</Badge>
           </Card.Text>
         </Card.Body>
-        {/* <>
-          {this.state.commentSec === true && (
-            <MyCommentArea commentList={this.state.commentsList} asin={this.props.book.asin} />
-          )}
-        </> */}
+        <>{this.state.selected && <MyCommentArea book={book} />}</>
       </Card>
     );
   }

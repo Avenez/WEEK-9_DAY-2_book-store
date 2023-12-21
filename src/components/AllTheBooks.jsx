@@ -86,7 +86,7 @@ class AllTheBooks extends Component {
           {this.state.books ? (
             <>
               <Form.Control
-                className="border border-1 border-info"
+                className="border border-1 border-info mb-2"
                 placeholder="Inserisci qui il titolo del libro che stai cercando..."
                 onChange={(event) => {
                   this.setState({
@@ -97,7 +97,7 @@ class AllTheBooks extends Component {
                 }}
               />
 
-              <MyBookList bookList={this.state.books} />
+              <MyBookList bookList={this.state.books} key={this.state.selectedCat} />
             </>
           ) : (
             <Container>

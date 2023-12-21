@@ -40,3 +40,14 @@
 .greenCardBorder {
   border: 2px solid green;
 }
+
+.bgColorCard {
+  background: rgb(255, 184, 81);
+  background: linear-gradient(180deg, rgba(255, 184, 81, 1) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.commentArea {
+  overflow-x: clip;
+  overflow-y: scroll;
+  height: 40vh;
+}
